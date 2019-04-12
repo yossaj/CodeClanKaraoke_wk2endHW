@@ -22,5 +22,13 @@ def add_customer_to_room(customer)
   customers.push(customer)
 end
 
+def remove_customer_by_name(name)
+  p customers
+  puts
+  num = @customers.index{|customer| name = customer.name}
+  p num
+end
+
+
 
 end

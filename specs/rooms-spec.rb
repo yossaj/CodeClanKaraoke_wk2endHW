@@ -6,6 +6,7 @@ require_relative("../songs.rb")
 require_relative("../K_bar_reception.rb")
 require_relative("../rooms.rb")
 
+
 class RoomsTest < MiniTest::Test
 
   def setup
@@ -18,7 +19,10 @@ class RoomsTest < MiniTest::Test
     @song7 = Song.new("Little Weapon", "Lupe Fiasco", "Hip Hop")
     @songs =[@song1,@song2,@song3,@song4,@song5]
     @big_room = Room.new(3, 10, 20, @songs)
-    @customer1 = Customer.new("Mr Zhang", 100)
+    @customer1 = Customer.new("Mr Zhang", "120")
+    @customer2 = Customer.new("Jill", "140")
+    @customer3 = Customer.new("Ben", "150")
+    @customer4 = Customer.new("Phil", "150")
   end
 
   def test_room_number
@@ -46,6 +50,12 @@ class RoomsTest < MiniTest::Test
     result = @big_room.add_customer_to_room(@customer1)
     assert_equal(9, @big_room.check_spaces_left)
   end
+
+def test_remove_customer_from_room
+  @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
+  result = @full_room.remove_customer_by_name("120")
+  assert_equal(1,@full_room.check_spaces_left)
+end
 
 
 end
