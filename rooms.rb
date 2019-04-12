@@ -19,14 +19,13 @@ def check_spaces_left
 end
 
 def add_customer_to_room(customer)
-  customers.push(customer)
+   check_spaces_left > 0 ? customers.push(customer) : "full"
 end
 
 def remove_customer_by_name(name)
-
   customers.delete_if{|customer| customer.name == name }
-
 end
+
 
 
 

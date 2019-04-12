@@ -18,11 +18,12 @@ class RoomsTest < MiniTest::Test
     @song6 = Song.new("Happy Birthday", "Unknown", "Unknown")
     @song7 = Song.new("Little Weapon", "Lupe Fiasco", "Hip Hop")
     @songs =[@song1,@song2,@song3,@song4,@song5]
-    @big_room = Room.new(3, 10, 20, @songs)
-    @customer1 = Customer.new("Mr Zhang", "120")
-    @customer2 = Customer.new("Jill", "140")
-    @customer3 = Customer.new("Ben", "150")
-    @customer4 = Customer.new("Phil", "150")
+    @big_room = Room.new(3, 10, 20, @songs,)
+    @customer1 = Customer.new("Mr Zhang", 123)
+    @customer2 = Customer.new("Jill", 140)
+    @customer3 = Customer.new("Ben", 150)
+    @customer4 = Customer.new("Phil", 150)
+    @customer5 = Customer.new("Sean", 20)
   end
 
   def test_room_number
@@ -43,7 +44,6 @@ class RoomsTest < MiniTest::Test
     @small_room = Room.new(3, 5, 20, ["songs"],["Bill", "John"])
     result = @small_room.check_spaces_left
     assert_equal(3,result)
-
   end
 
   def test_add_customer_to_room
@@ -51,11 +51,29 @@ class RoomsTest < MiniTest::Test
     assert_equal(9, @big_room.check_spaces_left)
   end
 
+  def test_add_customer_to_room__multi
+    @big_room.add_customer_to_room(@customer1)
+    @big_room.add_customer_to_room(@customer2)
+    @big_room.add_customer_to_room(@customer3)
+    @big_room.add_customer_to_room(@customer4)
+    assert_equal(6, @big_room.check_spaces_left)
+  end
+
+  def test_add_customer_to_room__full_room
+    @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
+    result = @full_room.add_customer_to_room(@customer5)
+    assert_equal("full", result)
+  end
+
 def test_remove_customer_from_room
   @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
   result = @full_room.remove_customer_by_name("Jill")
   assert_equal(1,@full_room.check_spaces_left)
 end
+
+
+
+
 
 
 end
