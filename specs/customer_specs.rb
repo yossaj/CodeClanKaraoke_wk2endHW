@@ -8,8 +8,12 @@ require_relative("../rooms.rb")
 class CustomerTest < MiniTest::Test
 
 def setup
+  @customer1 = Customer.new("Mr Zhang", 200)
 end
 
+def test_customer_name
+assert_equal("Mr Zhang", @customer1.name)
+end
 
 
 end

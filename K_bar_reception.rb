@@ -1,3 +1,11 @@
-class KBar
-  def initialize
+class KaraokeBar
+
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+
+
 end
