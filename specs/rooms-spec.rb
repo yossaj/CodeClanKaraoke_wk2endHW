@@ -53,7 +53,7 @@ class RoomsTest < MiniTest::Test
 
 def test_remove_customer_from_room
   @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
-  result = @full_room.remove_customer_by_name("120")
+  result = @full_room.remove_customer_by_name("Jill")
   assert_equal(1,@full_room.check_spaces_left)
 end
 

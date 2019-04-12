@@ -23,10 +23,9 @@ def add_customer_to_room(customer)
 end
 
 def remove_customer_by_name(name)
-  p customers
-  puts
-  num = @customers.index{|customer| name = customer.name}
-  p num
+
+  customers.delete_if{|customer| customer.name == name }
+
 end
 
 
