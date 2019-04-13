@@ -50,4 +50,6 @@ class CustomerTest < MiniTest::Test
     result = @customer1.cant_afford_room(@big_room)
     assert_equal(false, result)
   end
+
+
 end

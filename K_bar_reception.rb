@@ -18,5 +18,10 @@ class KaraokeBar
         add_money_to_till(room)
   end
 
+  def give_customers_room(room, customer)
+    charge_customer(room, customer)
+    room.add_customer_to_room(customer)
+  end
+
 
 end

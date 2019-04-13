@@ -51,6 +51,21 @@ def test_charge_customer__poor_customer
 end
 
 
+def test_give_customers_room__single
+  @karaoke1.give_customers_room(@big_room, @customer2)
+  assert_equal(120, @karaoke1.till)
+  assert_equal(8, @big_room.check_spaces_left)
+end
+
+def test_give_customers_room__multi
+  @karaoke1.give_customers_room(@big_room, @customer2)
+  @karaoke1.give_customers_room(@big_room, @customer3)
+  @karaoke1.give_customers_room(@big_room, @customer4)
+  @karaoke1.give_customers_room(@big_room, @customer5)
+  assert_equal(180, @karaoke1.till)
+  assert_equal(5, @big_room.check_spaces_left)
+end
+
 
 
 end
