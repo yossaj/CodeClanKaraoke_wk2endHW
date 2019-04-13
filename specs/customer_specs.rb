@@ -50,10 +50,21 @@ class CustomerTest < MiniTest::Test
     result = @customer1.cant_afford_room(@big_room)
     assert_equal(false, result)
   end
-  # 
-  # def test_favorites_song
-  #   @music_fan = Customer.new("Neil", 40, "Barbie Girl")
-  #   assert_equal("Barbie Girl", @music_fan.favorite_song )
-  # end
+  #
+  def test_favorites_song
+    @music_fan = Customer.new("Neil", 40, "Barbie Girl")
+    assert_equal("Barbie Girl", @music_fan.favorite_song )
+  end
 
+  def test_cheer_for_song
+    @music_fan2 = Customer.new("Tom", 32, "Song 2")
+    result = @music_fan2.cheer_for_song(@big_room)
+    assert_equal("Wooo Hoooo", result)
+  end
+
+  def test_cheer_for_song__unfound
+    @music_fan3 = Customer.new("Matt", 32, "Lonely Boy")
+    result = @music_fan3.cheer_for_song(@big_room)
+    assert_equal("I can't believe they don't have that song!", result)
+  end
 end
