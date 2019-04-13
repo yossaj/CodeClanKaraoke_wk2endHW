@@ -44,11 +44,11 @@ def test_charge_customer
   assert_equal(10, @customer5.wallet)
 end
 
-# def test_charge_customer__poor_customer
-#   @karaoke1.charge_customer(@lovers_room, @skint_customer)
-#   assert_equal(100,@karaoke1.till)
-#   assert_equal(0, @customer5.wallet)
-# end
+def test_charge_customer__poor_customer
+  @karaoke1.charge_customer(@lovers_room, @skint_customer)
+  assert_equal(100,@karaoke1.till)
+  assert_equal(0, @skint_customer.wallet)
+end
 
 
 

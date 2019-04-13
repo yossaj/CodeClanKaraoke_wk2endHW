@@ -13,9 +13,9 @@ class KaraokeBar
   end
 
   def charge_customer(room, customer)
+    return if customer.cant_afford_room(room)
         customer.remove_money(room)
         add_money_to_till(room)
-
   end
 
 

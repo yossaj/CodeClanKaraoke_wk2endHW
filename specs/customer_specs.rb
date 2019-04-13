@@ -39,6 +39,15 @@ class CustomerTest < MiniTest::Test
     assert_equal(0,@skint_customer.wallet)
   end
 
+  def test_cant_afford_room__true
+    @skint_customer = Customer.new("Jimmy", 0)
+    result = @skint_customer.cant_afford_room(@big_room)
+    assert_equal(true, result)
+  end
 
 
+  def test_cant_afford_room__false
+    result = @customer1.cant_afford_room(@big_room)
+    assert_equal(false, result)
+  end
 end
