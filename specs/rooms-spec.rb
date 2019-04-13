@@ -65,13 +65,16 @@ class RoomsTest < MiniTest::Test
     assert_equal("full", result)
   end
 
-def test_remove_customer_from_room
-  @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
-  result = @full_room.remove_customer_by_name("Jill")
-  assert_equal(1,@full_room.check_spaces_left)
-end
+  def test_remove_customer_from_room
+    @full_room = Room.new(4,4,12,["songs"], [@customer1,@customer2,@customer3,@customer4])
+    result = @full_room.remove_customer_by_name("Jill")
+    assert_equal(1,@full_room.check_spaces_left)
+  end
 
-
+  def test_add_to_tab
+    @big_room.add_to_tab(30)
+    assert_equal(30, @big_room.tab)
+  end
 
 
 
