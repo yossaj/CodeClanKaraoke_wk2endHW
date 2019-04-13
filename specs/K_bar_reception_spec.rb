@@ -77,6 +77,11 @@ result = @karaoke2.find_snack_price("Peanuts")
 assert_equal(10, result)
 end
 
+def test_charge_customer_tab_for_snack
+@karaoke2.charge_customer_for_snack("Peanuts", @customer1, @big_room)
+assert_equal(10,@big_room.tab)
+assert_equal(113, @customer1.wallet)
+end
 
 
 end

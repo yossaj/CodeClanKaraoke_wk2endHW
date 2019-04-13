@@ -28,8 +28,11 @@ class KaraokeBar
     price = @snacks[name]
   end
 
-  # def charge_customer_for_snack
-  # end
+  def charge_customer_for_snack(snack,customer,room)
+    room.add_to_tab(@snacks[snack])
+    customer.remove_money(@snacks[snack])
+
+  end
 
 
 
