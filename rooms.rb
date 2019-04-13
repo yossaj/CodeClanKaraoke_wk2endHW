@@ -1,11 +1,11 @@
 class Room
-  attr_reader :number, :space, :fee, :songs
+  attr_reader :number, :space, :charge, :songs
   attr_accessor :customers
 
-  def initialize(number, space, fee, songs, customers = [])
+  def initialize(number, space, charge, songs, customers = [], tab = 0.00)
     @number = number
     @space = space
-    @fee = fee
+    @charge = charge
     @songs = songs
     @customers = customers
   end
@@ -26,7 +26,9 @@ def remove_customer_by_name(name)
   customers.delete_if{|customer| customer.name == name }
 end
 
-
+# def add_to_tab
+#
+# end
 
 
 end

@@ -34,7 +34,7 @@ def test_kbar_name
 end
 
 def test_add_money_to_till
-  @karaoke1.add_money_to_till(@big_room)
+  @karaoke1.add_money_to_till(@big_room.charge)
   assert_equal(120,@karaoke1.till)
 end
 
@@ -50,7 +50,7 @@ def test_charge_customer__poor_customer
   assert_equal(0, @skint_customer.wallet)
 end
 
-
+#
 def test_give_customers_room__single
   @karaoke1.give_customers_room(@big_room, @customer2)
   assert_equal(120, @karaoke1.till)

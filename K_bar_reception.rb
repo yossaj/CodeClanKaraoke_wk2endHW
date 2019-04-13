@@ -8,14 +8,14 @@ class KaraokeBar
     @till = till
   end
 
-  def add_money_to_till(room)
-    @till += room.fee
+  def add_money_to_till(fee)
+    @till += fee
   end
 
   def charge_customer(room, customer)
     return if customer.cant_afford_room(room)
-        customer.remove_money(room)
-        add_money_to_till(room)
+        customer.remove_money(room.charge)
+        add_money_to_till(room.charge)
   end
 
   def give_customers_room(room, customer)

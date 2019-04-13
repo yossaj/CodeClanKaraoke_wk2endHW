@@ -8,12 +8,12 @@ class Customer
     @favorite_song = favorite_song
   end
 
-  def remove_money(room)
-     @wallet > 0 ? @wallet -= room.fee : false
+  def remove_money(charge)
+     @wallet > 0 ? @wallet -= charge : false
   end
 
   def cant_afford_room(room)
-    @wallet < room.fee
+    @wallet < room.charge
   end
 
   def cheer_for_song(room)

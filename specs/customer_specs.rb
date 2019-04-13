@@ -29,13 +29,13 @@ class CustomerTest < MiniTest::Test
   end
 
   def test_remove_money
-  @customer3.remove_money(@big_room)
+  @customer3.remove_money(@big_room.charge)
   assert_equal(130, @customer3.wallet)
   end
 
   def test_remove_money__skint
     @skint_customer = Customer.new("Jimmy", 0)
-    @skint_customer.remove_money(@big_room)
+    @skint_customer.remove_money(@big_room.charge)
     assert_equal(0,@skint_customer.wallet)
   end
 
@@ -67,4 +67,6 @@ class CustomerTest < MiniTest::Test
     result = @music_fan3.cheer_for_song(@big_room)
     assert_equal("I can't believe they don't have that song!", result)
   end
+
+
 end
