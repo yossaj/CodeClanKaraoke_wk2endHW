@@ -26,7 +26,9 @@ def setup
   @customer4 = Customer.new("Phil", 150)
   @customer5 = Customer.new("Sean", 20)
   @skint_customer = Customer.new("Jimmy", 0)
+  @snacks ={ "Peanuts" => 10, "Candy" => 4}
  @karaoke1 = KaraokeBar.new("Karaoke1",[@big_room,@full_room],100)
+ @karaoke2 = KaraokeBar.new("Karaoke2",[@big_room,@full_room],100, @snacks)
 end
 
 def test_kbar_name
@@ -64,6 +66,15 @@ def test_give_customers_room__multi
   @karaoke1.give_customers_room(@big_room, @customer5)
   assert_equal(180, @karaoke1.till)
   assert_equal(5, @big_room.check_spaces_left)
+end
+#
+def test_snacks_exists
+  assert_equal({ "Peanuts" => 10, "Candy" => 4}, @karaoke2.snacks)
+end
+
+def test_find_snack_price
+result = @karaoke2.find_snack_price("Peanuts")
+assert_equal(10, result)
 end
 
 

@@ -1,11 +1,12 @@
 class KaraokeBar
 
-  attr_reader :name, :rooms, :till
+  attr_reader :name, :rooms, :till, :snacks
 
-  def initialize(name, rooms, till = 0)
+  def initialize(name, rooms, till = 0, snacks = Hash.new)
     @name = name
     @rooms = rooms
     @till = till
+    @snacks = snacks
   end
 
   def add_money_to_till(fee)
@@ -22,6 +23,14 @@ class KaraokeBar
     charge_customer(room, customer)
     room.add_customer_to_room(customer)
   end
+
+  def find_snack_price(name)
+    price = @snacks[name]
+  end
+
+  # def charge_customer_for_snack
+  # end
+
 
 
 end
